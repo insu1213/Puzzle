@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public GameObject playerFoot;
     GameObject player;
     Rigidbody2D playerRid;
     Animator playerAnim;
+    
 
     int playerSpeed;
     float playerCurrentVelocity;
@@ -24,19 +26,27 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonUp("Horizontal"))
+        Debug.DrawRay(player.transform.position, Vector2.down * 3.0f, Color.green);
+
+        if (Input.GetButtonUp("Horizontal"))
         {
             playerAnim.SetBool("isRun", false);
             playerRid.velocity = new Vector2(playerRid.velocity.normalized.x * 0.5f, playerRid.velocity.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            playerRid.AddForce(new Vector2(0, 300 * Time.deltaTime), ForceMode2D.Impulse);
-            playerAnim.SetBool("isRun", false);
-            playerAnim.SetBool("isJump", true);
 
+        if (playerAnim.GetBool("isJump") == false)
+        {
+            Debug.Log("¡¯¿‘«‘");
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                playerRid.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+                playerAnim.SetBool("isRun", false);
+                playerAnim.SetBool("isJump", true);
+
+            }
         }
+        
     }
 
     void FixedUpdate()
