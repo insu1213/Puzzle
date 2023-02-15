@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject playerFoot;
     GameObject player;
     Rigidbody2D playerRid;
-    Animator playerAnim;
+    public Animator playerAnim;
     
 
     int playerSpeed;
