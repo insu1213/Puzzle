@@ -20,8 +20,7 @@ public class Jump : MonoBehaviour
         
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("¡¯¿‘«‘3");
-            collision.rigidbody.velocity = new Vector2(0, 15);
+            collision.rigidbody.velocity = new Vector2(0, 10);
         }
     }
 }

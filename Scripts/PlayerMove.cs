@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
         playerRid = player.GetComponent<Rigidbody2D>();
         playerAnim = player.GetComponent<Animator>();
 
-        playerSpeed = 10;
+        playerSpeed = 20;
         playerMaxSpeed = 10;
     }
 
@@ -74,6 +74,15 @@ public class PlayerMove : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             playerAnim.SetBool("isJump", false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Key"))
+        {
+            other.gameObject.SetActive(false);
+            player.GetComponent<Player>().keyStatus = true;
         }
     }
 }

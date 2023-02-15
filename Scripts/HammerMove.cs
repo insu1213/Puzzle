@@ -10,7 +10,7 @@ public class HammerMove : MonoBehaviour
     void Start()
     {
         trFix = transform.position;
-        targetPosition = new Vector2(trFix.x, trFix.y - 9);
+        targetPosition = new Vector2(trFix.x, trFix.y - 11);
         upDown = true;
     }
     void Update()
@@ -25,16 +25,16 @@ public class HammerMove : MonoBehaviour
             targetPosition = new Vector2(trFix.x, trFix.y - 11);
             upDown = true;
         }
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * 10);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * 7);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("¡¯¿‘«‘3");
-            GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(new Vector2(-50f, 3f), ForceMode2D.Impulse);
+            GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(new Vector2(-10f, 3f), ForceMode2D.Impulse);
             GameObject.Find("Player").GetComponent<PlayerMove>().playerAnim.SetTrigger("hurt");
+            
         }
     }
 }

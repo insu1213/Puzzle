@@ -22,7 +22,7 @@ public class Coin : MonoBehaviour
             audioSource.Play();
             transform.gameObject.SetActive(false);
             Player player = GameObject.Find("Player").GetComponent<Player>();
-            player.coin++;
+            player.PointSet(1);
         }
     }
 }
