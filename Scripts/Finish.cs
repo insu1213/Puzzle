@@ -18,7 +18,7 @@ public class Finish : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.position = new Vector2(80f, -13f);
+            collision.gameObject.transform.position = new Vector2(115f, -13f);
         }
     }
 }

@@ -45,5 +45,6 @@ public class Player : MonoBehaviour
     public void Damaged(int damage)
     {
         hp -= damage;
+        GameObject.Find("Player").GetComponent<PlayerMove>().playerAnim.SetTrigger("hurt");
     }
 }
